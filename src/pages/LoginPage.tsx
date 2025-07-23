@@ -5,7 +5,7 @@ import { UserDTO } from '../dto/user.dto';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState('root'); // correspond au champ 'login'
+  const [login, setLogin] = useState('root'); 
   const [password, setPassword] = useState('root');
   const [error, setError] = useState('');
 
@@ -24,12 +24,18 @@ const LoginPage: React.FC = () => {
       localStorage.setItem('sessionId', sessionId);
 
       const user: UserDTO | null = await UserService.getMe();
-      if (user) {
-        localStorage.setItem('user', JSON.stringify(user));
-        navigate('/dashboard');
-      } else {
+      if (!user) {
         setError("Impossible de récupérer les informations utilisateur.");
+        return;
       }
+
+      if (user.role !== 'admin' && user.role !== 'super_admin') {
+        setError("Accès réservé aux administrateurs.");
+        return;
+      }
+
+      localStorage.setItem('user', JSON.stringify(user));
+      navigate('/dashboard');
     } catch (err) {
       console.error(err);
       setError("Une erreur est survenue.");
