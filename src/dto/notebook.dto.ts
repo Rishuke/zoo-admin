@@ -3,8 +3,8 @@ import { UserDTO } from "./user.dto";
 
 export interface NotebookDTO {
   _id: string;
-  animal: string;        // ← ID de l'animal
-  creator: string;       // ← ID de l'utilisateur connecté
+  animal: string;        
+  creator: string;       
   text: string;
   images: string[];
   createdAt: string;
