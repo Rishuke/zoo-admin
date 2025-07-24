@@ -5,18 +5,23 @@ import { NotebookDTO } from '../../dto/notebook.dto';
 import './NotebookListPage.css';
 
 const NotebookListPage: React.FC = () => {
-  const { animalId } = useParams();
   const zoo = JSON.parse(localStorage.getItem('zoo') || '{}');
+  const animal = JSON.parse(localStorage.getItem('animal') || '{}');
+
+  const { zooId, animalId } = useParams();
+
   const [notebooks, setNotebooks] = useState<NotebookDTO[]>([]);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!animalId) return;
-
     const fetchNotebooks = async () => {
+      console.log("Fetching notebooks for zooId:", zoo._id, "and animalId:", animal._id);
+      if (!zoo._id || !animalId) return;
+
       try {
         const data = await NotebookService.getNotebooksByAnimal(zoo._id, animalId);
+        console.log("Notebooks récupérés :", data);
         setNotebooks(data);
       } catch (err) {
         console.error(err);
@@ -25,13 +30,16 @@ const NotebookListPage: React.FC = () => {
     };
 
     fetchNotebooks();
-  }, [animalId, zoo._id]);
+  }, [zoo._id, animalId]);
 
   return (
     <div className="notebook-list-container">
       <div className="notebook-list-header">
         <h1>Notes de suivi</h1>
-        <button onClick={() => navigate(`/animals/${animalId}/notebooks/create`)} className="create-button">
+        <button
+          onClick={() => navigate(`/zoo/${zoo._id}/animal/${animal._id}/notebook/create`)}
+          className="create-button"
+        >
           + Nouvelle Note
         </button>
       </div>
@@ -45,7 +53,9 @@ const NotebookListPage: React.FC = () => {
           {notebooks.map((note) => (
             <li key={note._id} className="notebook-item">
               <p>{note.text}</p>
-              <small>Créée le : {new Date(note.createdAt).toLocaleString()}</small>
+              <small>
+                Créée le {new Date(note.createdAt).toLocaleString()}
+              </small>
             </li>
           ))}
         </ul>

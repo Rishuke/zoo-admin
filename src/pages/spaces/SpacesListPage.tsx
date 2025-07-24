@@ -13,7 +13,6 @@ const SpacesListPage: React.FC = () => {
   useEffect(() => {
     const fetchSpaces = async () => {
       try {
-        // 🔹 Récupération des zoos
         const zoos = await ZooService.getAllZoos();
         console.log('Liste des zoos disponibles :', zoos);
 
@@ -22,8 +21,8 @@ const SpacesListPage: React.FC = () => {
           return;
         }
 
-        const selectedZoo = zoos[0]; // 🔸 On prend le premier zoo
-        localStorage.setItem('zoo', JSON.stringify(selectedZoo)); // 🔸 Stocké dans localStorage
+        const selectedZoo = zoos[0];
+        localStorage.setItem('zoo', JSON.stringify(selectedZoo)); 
 
         const fetchedSpaces = await SpaceService.getAllSpaces(selectedZoo._id);
         setSpaces(fetchedSpaces);

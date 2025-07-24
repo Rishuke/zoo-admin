@@ -1,4 +1,3 @@
-// services/animal.service.ts
 import axios from 'axios';
 import { AnimalDTO , CreateAnimalDTO} from '../dto/animal.dto';
 

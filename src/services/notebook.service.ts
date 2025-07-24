@@ -21,7 +21,9 @@ export class NotebookService {
     }
   }
 
-  static async getNotebooksByAnimal(zooId: string, animalId: string): Promise<NotebookDTO[]> {
+ 
+
+static async getNotebooksByAnimal(zooId: string, animalId: string): Promise<NotebookDTO[]> {
   try {
     const sessionId = localStorage.getItem('sessionId');
     if (!sessionId) throw new Error('Session non trouvée.');
@@ -30,12 +32,17 @@ export class NotebookService {
       headers: { Authorization: `Bearer ${sessionId}` },
     });
 
-    if (res.status === 200) return res.data as NotebookDTO[];
+
+    if (res.status === 200) {
+      return res.data as NotebookDTO[];
+    }
+
     return [];
   } catch (error) {
     console.error("Erreur lors de la récupération des notebooks :", error);
     return [];
   }
 }
+
 
 }
