@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/common/Card';
 import { CardContent } from '../components/common/CardContent';
-
+import './Dashboard.css';
 
 type Section = {
   title: string;
@@ -25,8 +25,13 @@ const Dashboard: React.FC = () => {
       path: '/animals',
     },
     {
-      title: 'Employés',
+      title: 'Administrateurs',
       description: 'Planification du personnel et vérification des conditions d’ouverture.',
+      path: '/admins',
+    },
+    {
+      title: 'Employés',
+      description: 'Gestion des employés et de leurs horaires.',
       path: '/employees',
     },
     {
@@ -42,31 +47,25 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6">Tableau de bord – Administration du Zoo</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {sections.map((section) => {
-
-          return (
-            <div
-              key={section.title}
-              className="cursor-pointer"
-              onClick={() => navigate(section.path)}
-            >
-              <Card className="hover:shadow-lg transition-shadow duration-200">
-                <CardContent className="flex items-center space-x-4">
-                  <div className="text-zinc-600">
-                    
-                  </div>
-                  <div>
-                    <h2 className="text-xl font-semibold">{section.title}</h2>
-                    <p className="text-sm text-zinc-500">{section.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          );
-        })}
+    <div className="dashboard-container">
+      <h1 className="dashboard-title">🐾 Tableau de bord – Administration du Zoo</h1>
+      <div className="dashboard-grid">
+        {sections.map((section) => (
+          <div
+            key={section.title}
+            className="dashboard-card-wrapper"
+            onClick={() => navigate(section.path)}
+          >
+            <Card className="dashboard-card hover:shadow-xl">
+              <CardContent className="dashboard-card-content">
+                <div className="dashboard-card-info">
+                  <h2 className="dashboard-card-title">{section.title}</h2>
+                  <p className="dashboard-card-description">{section.description}</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import axios, { CancelToken } from "axios";
-import { UserDTO } from "../dto/user.dto";
+import { UserDTO  } from "../dto/user.dto";
+import { CreateUserDTO } from "../dto/create_user.dto";
 
 const API_BASE = "http://localhost:8080";
 
@@ -70,5 +71,64 @@ export class UserService {
     return null;
   }
 }
+
+static async createAdmin(zooId: string, data: CreateUserDTO): Promise<UserDTO | null> {
+    try {
+      const sessionId = localStorage.getItem('sessionId');
+      if (!sessionId) throw new Error('Session non trouvée.');
+
+      const res = await axios.post(`${API_BASE}/user/admin`, {
+        ...data,
+        zoo: zooId,
+        role: 'admin',
+      }, {
+        headers: { Authorization: `Bearer ${sessionId}` }
+      });
+
+      if (res.status === 201) return res.data as UserDTO;
+      return null;
+    } catch (error) {
+      console.error("Erreur lors de la création d’un admin :", error);
+      return null;
+    }
+  }
+
+  static async createEmployee(zooId: string, data: CreateUserDTO): Promise<UserDTO | null> {
+    try {
+      const sessionId = localStorage.getItem('sessionId');
+      if (!sessionId) throw new Error('Session non trouvée.');
+
+      const res = await axios.post(`${API_BASE}/user/employee`, {
+        ...data,
+        zoo: zooId,
+        role: 'employee',
+      }, {
+        headers: { Authorization: `Bearer ${sessionId}` }
+      });
+
+      if (res.status === 201) return res.data as UserDTO;
+      return null;
+    } catch (error) {
+      console.error("Erreur lors de la création d’un employé :", error);
+      return null;
+    }
+  }
+
+  static async getUsersByZoo(zooId: string): Promise<UserDTO[]> {
+    try {
+      const sessionId = localStorage.getItem('sessionId');
+      if (!sessionId) throw new Error('Session non trouvée.');
+
+      const res = await axios.get(`${API_BASE}/user?zoo_id=${zooId}`, {
+        headers: { Authorization: `Bearer ${sessionId}` }
+      });
+
+      if (res.status === 200) return res.data as UserDTO[];
+      return [];
+    } catch (error) {
+      console.error("Erreur récupération utilisateurs :", error);
+      return [];
+    }
+  }
 
 }
