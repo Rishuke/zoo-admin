@@ -1,0 +1,64 @@
+.space-form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.space-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.space-form-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1f2937; /* slate-800 */
+}
+
+.space-form-input,
+.space-form-textarea,
+.space-form-select {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #f9fafb;
+}
+
+.space-form-input:focus,
+.space-form-textarea:focus,
+.space-form-select:focus {
+  outline: none;
+  border-color: #3b82f6; /* blue-500 */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.space-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.space-form-submit {
+  background-color: #10b981; /* emerald-500 */
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.space-form-submit:hover {
+  background-color: #059669; /* emerald-600 */
+}

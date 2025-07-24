@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserService } from '../services/user.service';
 import { UserDTO } from '../dto/user.dto';
+import './LoginPage.css';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -43,31 +44,33 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <form onSubmit={handleLogin} className="bg-white shadow-lg rounded p-6 w-80">
-        <h2 className="text-xl font-bold mb-4">Connexion</h2>
-        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
-        <input
-          type="text"
-          placeholder="Login"
-          value={login}
-          onChange={(e) => setLogin(e.target.value)}
-          className="w-full border px-3 py-2 mb-4 rounded"
-        />
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full border px-3 py-2 mb-4 rounded"
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-        >
-          Se connecter
-        </button>
-      </form>
+    <div className="login-container">
+      <div className="login-card">
+        <div className="login-logo">
+          <img src="/zoo-logo.svg" alt="Zoo Admin" />
+        </div>
+        <h2 className="login-title">Connexion Admin</h2>
+        <form onSubmit={handleLogin}>
+          {error && <p className="login-error">{error}</p>}
+          <input
+            type="text"
+            placeholder="Identifiant"
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
+            className="login-input"
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="login-input"
+          />
+          <button type="submit" className="login-button">
+            Se connecter
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

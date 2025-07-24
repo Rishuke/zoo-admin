@@ -1,0 +1,62 @@
+.spaces-list-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.spaces-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.spaces-list-header h1 {
+  font-size: 2rem;
+  color: #1e293b;
+}
+
+.create-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.create-button:hover {
+  background-color: #1d4ed8;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.space-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.space-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.space-card p {
+  color: #475569;
+  font-size: 0.95rem;
+}
