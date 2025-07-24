@@ -10,6 +10,10 @@ type Section = {
   path: string;
 };
 
+const zoo = JSON.parse(localStorage.getItem('zoo') || '{}');
+const animal = JSON.parse(localStorage.getItem('animal') || '{}');
+
+
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
 
@@ -42,7 +46,7 @@ const Dashboard: React.FC = () => {
     {
       title: 'NoteBook',
       description: 'Suivre la fréquentation, l’affluence et exporter les données.',
-      path: '/notebook',
+      path: `/zoo/${zoo._id}/animal/${animal._id}/notebook`,
     },
   ];
 

@@ -24,8 +24,8 @@ function App() {
         <Route path="/admins/create" element={<CreateAdminPage />} />
         <Route path="/animals" element={<AnimalsListPage />} />
         <Route path="/animals/create" element={<CreateAnimalPage />} />
-        <Route path ="/notebook" element={<NotebookListPage />} />
-        <Route path="/notebook/create" element={<NotebookCreatePage />} />
+<Route path="/zoo/:zooId/animal/:animalId/notebook" element={<NotebookListPage />} />
+        <Route path="/zoo/:zooId/animal/:animalId/notebook/create" element={<NotebookCreatePage />} />
 
       </Routes>
     </BrowserRouter>

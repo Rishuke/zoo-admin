@@ -1,9 +1,10 @@
 import { AnimalDTO } from "./animal.dto";
+import { UserDTO } from "./user.dto";
 
 export interface NotebookDTO {
   _id: string;
-  animal: AnimalDTO;
-  creator: string;
+  animal: string;        
+  creator: string;       
   text: string;
   images: string[];
   createdAt: string;
@@ -11,7 +12,8 @@ export interface NotebookDTO {
 }
 
 export interface CreateNotebookDTO {
-  animal: AnimalDTO;
+  animal: AnimalDTO;       
+  creator: UserDTO; 
   text: string;
   images?: string[];
 }

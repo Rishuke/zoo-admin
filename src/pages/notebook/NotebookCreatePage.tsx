@@ -15,13 +15,19 @@ const NotebookCreatePage: React.FC = () => {
     e.preventDefault();
     if (!text.trim()) return setError("Le texte est requis.");
 
-    const selectAnimal = JSON.parse(localStorage.getItem('animal') || '{}');
+  const animal = JSON.parse(localStorage.getItem('animal') || '{}');
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-    const newNote: CreateNotebookDTO = {
-      animal: selectAnimal,
-      text,
-      images: [],
-    };
+  console.log("Creating notebook for zooId:", zooId, "and animalId:", animalId);
+
+  const newNote: CreateNotebookDTO = {
+    animal: animal._id,        
+    creator: user._id,         
+    text,
+    images: [],
+    
+  };
+
 
     const notebook = await NotebookService.createNotebook(zooId!, animalId!, newNote);
 
