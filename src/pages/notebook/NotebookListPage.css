@@ -1,0 +1,43 @@
+.notebook-list-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.notebook-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.notebook-list-header h1 {
+  font-size: 2rem;
+  color: #0f172a;
+}
+
+.notebook-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.notebook-card {
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.notebook-card p {
+  font-size: 0.95rem;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.notebook-card small {
+  display: block;
+  color: #64748b;
+  font-size: 0.8rem;
+}

@@ -1,6 +1,8 @@
+import { ZooDTO } from "./zoo.dto";
+
 export interface SpaceDTO {
   _id: string;
-  zoo: string;
+  zoo: ZooDTO;
   name: string;
   description: string;
   images: string[];

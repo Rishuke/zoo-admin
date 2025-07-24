@@ -1,0 +1,58 @@
+.create-animal-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: linear-gradient(to right, #fefce8, #fef9c3);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.create-animal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.create-animal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.create-animal-form input,
+.create-animal-form textarea,
+.create-animal-form select {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.create-animal-form input:focus,
+.create-animal-form textarea:focus,
+.create-animal-form select:focus {
+  border-color: #facc15;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.3);
+}
+
+.create-animal-form button {
+  padding: 0.75rem 1rem;
+  background-color: #facc15;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-animal-form button:hover {
+  background-color: #eab308;
+}

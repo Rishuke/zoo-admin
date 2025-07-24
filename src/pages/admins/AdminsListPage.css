@@ -1,0 +1,58 @@
+.admins-list-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.admins-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.admins-header h1 {
+  font-size: 1.75rem;
+  color: #1f2937;
+}
+
+.admins-header button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.admins-header button:hover {
+  background-color: #1e40af;
+}
+
+.admins-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.admins-table th,
+.admins-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admins-table th {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.error {
+  color: #dc2626;
+  text-align: center;
+  font-weight: 500;
+}

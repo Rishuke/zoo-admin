@@ -40,9 +40,9 @@ const Dashboard: React.FC = () => {
       path: '/tickets',
     },
     {
-      title: 'Statistiques',
+      title: 'NoteBook',
       description: 'Suivre la fréquentation, l’affluence et exporter les données.',
-      path: '/stats',
+      path: '/notebook',
     },
   ];
 
