@@ -1,0 +1,59 @@
+.animals-list-container {
+  max-width: 1000px;
+  margin: 3rem auto;
+  background-color: #f9fafb;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.animals-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.animals-header h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.animals-header button {
+  background-color: #f59e0b;
+  color: white;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.animals-header button:hover {
+  background-color: #d97706;
+}
+
+.animals-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.animals-table th,
+.animals-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.animals-table th {
+  background-color: #fef3c7;
+  font-weight: 600;
+}
+
+.error {
+  color: #dc2626;
+  font-weight: 500;
+}
